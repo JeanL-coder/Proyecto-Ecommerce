@@ -1,0 +1,73 @@
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+        <div class="panel border bg-white">
+          <div class="panel-heading">
+            <h3 class="pt-3 font-weight-bold">Agregar Producto</h3>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="productoForm.controls['Nombre'].dirty && productoForm.hasError('required','Nombre')">
+                  <span class="fa fa-user p-2"></span>
+                  <input formControlName="Nombre" type="text" placeholder="Nombre del Producto">
+                </div>
+              </div>
+              <small *ngIf="productoForm.controls['Nombre'].dirty && productoForm.hasError('required','Nombre')" class="text-danger">*Nombre es requerido*</small>
+
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="productoForm.controls['Descripcion'].dirty && productoForm.hasError('required','Descripcion')">
+                  <span class="fa fa-file-text p-2"></span>
+                  <textarea formControlName="Descripcion" placeholder="Descripción del Producto"></textarea>
+                </div>
+              </div>
+              <small *ngIf="productoForm.controls['Descripcion'].dirty && productoForm.hasError('required','Descripcion')" class="text-danger">*Descripción es requerida*</small>
+
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="productoForm.controls['Precio'].dirty && productoForm.hasError('required','Precio')">
+                  <span class="fa fa-money p-2"></span>
+                  <input formControlName="Precio" type="number" step="0.01" placeholder="Precio del Producto">
+                </div>
+              </div>
+              <small *ngIf="productoForm.controls['Precio'].dirty && productoForm.hasError('required','Precio')" class="text-danger">*Precio es requerido*</small>
+
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="productoForm.controls['Stock'].dirty && productoForm.hasError('required','Stock')">
+                  <span class="fa fa-cubes p-2"></span>
+                  <input formControlName="Stock" type="number" placeholder="Stock del Producto">
+                </div>
+              </div>
+              <small *ngIf="productoForm.controls['Stock'].dirty && productoForm.hasError('required','Stock')" class="text-danger">*Stock es requerido*</small>
+
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="productoForm.controls['CategoriaID'].dirty && productoForm.hasError('required','CategoriaID')">
+                  <span class="fa fa-list-alt p-2"></span>
+                  <input formControlName="CategoriaID" type="number" placeholder="ID de Categoría">
+                </div>
+              </div>
+              <small *ngIf="productoForm.controls['CategoriaID'].dirty && productoForm.hasError('required','CategoriaID')" class="text-danger">*ID de Categoría es requerido*</small>
+
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="productoForm.controls['ProveedorID'].dirty && productoForm.hasError('required','ProveedorID')">
+                  <span class="fa fa-users p-2"></span>
+                  <input formControlName="ProveedorID" type="number" placeholder="ID de Proveedor">
+                </div>
+              </div>
+              <small *ngIf="productoForm.controls['ProveedorID'].dirty && productoForm.hasError('required','ProveedorID')" class="text-danger">*ID de Proveedor es requerido*</small>
+
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <label for="imagen">Imagen del Producto: </label>
+                  <input type="file" (change)="onImageSelected($event)" accept="image/*">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Agregar Producto</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

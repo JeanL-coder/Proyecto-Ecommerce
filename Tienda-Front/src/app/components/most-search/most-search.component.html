@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Productos más Buscados</h1>
+  <div class="product-list">
+      <div class="product-item" *ngFor="let producto of productos">
+          <strong>{{ producto.nombre }}</strong> - busquedas: {{ producto.busquedas }}
+      </div>
+  </div>
+</div>
+
